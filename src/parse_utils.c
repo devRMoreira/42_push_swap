@@ -6,7 +6,7 @@
 /*   By: rimagalh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:31:03 by rimagalh          #+#    #+#             */
-/*   Updated: 2025/01/22 15:39:30 by rimagalh         ###   ########.fr       */
+/*   Updated: 2025/01/22 16:40:13 by rimagalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,10 @@ void free_arr(int** arr)
 {
 	if(arr)
 	{
-		free(arr[0]);
-		free(arr[1]);
+		if(arr[0])
+			free(arr[0]);
+		if(arr[1])
+			free(arr[1]);
 		free(arr);
 	}
 }
