@@ -6,11 +6,11 @@
 /*   By: rimagalh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:31:03 by rimagalh          #+#    #+#             */
-/*   Updated: 2024/12/19 16:05:48 by rimagalh         ###   ########.fr       */
+/*   Updated: 2025/01/22 15:39:30 by rimagalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../includes/push_swap.h"
 
 static int check_dupe(int *arr, int size, int i)
 {

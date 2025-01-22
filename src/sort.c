@@ -6,9 +6,11 @@
 /*   By: rimagalh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 15:13:28 by rimagalh          #+#    #+#             */
-/*   Updated: 2024/12/19 18:26:36 by rimagalh         ###   ########.fr       */
+/*   Updated: 2025/01/22 15:39:21 by rimagalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../includes/push_swap.h"
 
 void ft_sort(int *stack_a, int size)
 {
