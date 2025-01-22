@@ -6,7 +6,7 @@
 #    By: rimagalh <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/05 14:57:15 by rimagalh          #+#    #+#              #
-#    Updated: 2025/01/22 15:23:44 by rimagalh         ###   ########.fr        #
+#    Updated: 2025/01/22 16:13:55 by rimagalh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,5 +44,8 @@ fclean: clean
 
 
 re: fclean all
+
+gdb: CFLAGS += -g
+gdb: re
 
 .PHONY: all clean fclean re
