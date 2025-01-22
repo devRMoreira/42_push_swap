@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rimagalh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/05 15:34:02 by rimagalh          #+#    #+#             */
-/*   Updated: 2025/01/22 15:24:29 by rimagalh         ###   ########.fr       */
+/*   Created: 2024/10/29 13:32:30 by rimagalh          #+#    #+#             */
+/*   Updated: 2024/11/02 15:38:02 by rimagalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include "../lib/libft/libft.h"
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+{
+	unsigned int	i;
 
-int** parse_nums(char **input, int total);
-int** parse_str(char *input);
-int valid_input(char *str);
-int validate_stack(int *arr, int size);
-void ft_sort(int **arr, int size);
-void free_arr(int** arr);
-
-#endif
+	if (!s)
+		return ;
+	i = 0;
+	while (s[i] != '\0')
+	{
+		f(i, &s[i]);
+		i++;
+	}
+}

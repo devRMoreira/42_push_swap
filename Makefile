@@ -6,7 +6,7 @@
 #    By: rimagalh <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/05 14:57:15 by rimagalh          #+#    #+#              #
-#    Updated: 2024/12/19 18:24:59 by rimagalh         ###   ########.fr        #
+#    Updated: 2025/01/22 15:23:44 by rimagalh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,32 +23,25 @@ SRC = src/main.c \
 OBJ = $(SRC:.c=.o)
 
 LIBFT_DIR = lib/libft
-LIBFT = libft.a
-LIBFT_REPO = https://github.com/devRMoreira/42_libft
+LIBFT = $(LIBFT_DIR)/libft.a
 
-all: $(NAME)
-
-$(NAME): $(OBJ) $(LIBFT)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT_DIR)/$(LIBFT)
+all: $(LIBFT) $(NAME)
 
 $(LIBFT):
-	if [ ! -d "$(LIBFT_DIR)" ]; then \
-        git clone $(LIBFT_REPO) $(LIBFT_DIR); \
-    else \
-        cd $(LIBFT_DIR) && git pull origin main; \
-    fi
 	$(MAKE) -C $(LIBFT_DIR)
 
-gdb: CFLAGS += -g
-gdb: re
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT)
 
 clean:
-	rm -rf $(OBJ)
+	rm -f $(OBJ)
 	$(MAKE) -C $(LIBFT_DIR) clean
 
+
 fclean: clean
-	rm -rf $(NAME)
+	rm -f $(NAME)
 	$(MAKE) -C $(LIBFT_DIR) fclean
+
 
 re: fclean all
 

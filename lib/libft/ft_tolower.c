@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rimagalh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/05 15:34:02 by rimagalh          #+#    #+#             */
-/*   Updated: 2025/01/22 15:24:29 by rimagalh         ###   ########.fr       */
+/*   Created: 2024/10/17 16:30:46 by rimagalh          #+#    #+#             */
+/*   Updated: 2024/11/02 15:38:32 by rimagalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-# include "../lib/libft/libft.h"
-
-int** parse_nums(char **input, int total);
-int** parse_str(char *input);
-int valid_input(char *str);
-int validate_stack(int *arr, int size);
-void ft_sort(int **arr, int size);
-void free_arr(int** arr);
-
-#endif
+int	ft_tolower(int c)
+{
+	if (c >= 'A' && c <= 'Z')
+		return (c + 32);
+	else
+		return (c);
+}

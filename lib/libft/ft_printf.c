@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rimagalh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/05 15:34:02 by rimagalh          #+#    #+#             */
-/*   Updated: 2025/01/22 15:24:29 by rimagalh         ###   ########.fr       */
+/*   Created: 2024/11/07 17:49:18 by rimagalh          #+#    #+#             */
+/*   Updated: 2024/12/10 15:38:51 by rimagalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include "../lib/libft/libft.h"
+int	ft_printf(const char *input, ...)
+{
+	va_list	args;
+	int		counter;
 
-int** parse_nums(char **input, int total);
-int** parse_str(char *input);
-int valid_input(char *str);
-int validate_stack(int *arr, int size);
-void ft_sort(int **arr, int size);
-void free_arr(int** arr);
-
-#endif
+	va_start(args, input);
+	counter = ft_input_handler(input, args);
+	va_end(args);
+	return (counter);
+}

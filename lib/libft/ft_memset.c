@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rimagalh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/05 15:34:02 by rimagalh          #+#    #+#             */
-/*   Updated: 2025/01/22 15:24:29 by rimagalh         ###   ########.fr       */
+/*   Created: 2024/10/17 17:08:56 by rimagalh          #+#    #+#             */
+/*   Updated: 2024/10/28 19:04:06 by rimagalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include "../lib/libft/libft.h"
+void	*ft_memset(void *s, int c, size_t n)
+{
+	char		*ptr;
+	size_t		i;
 
-int** parse_nums(char **input, int total);
-int** parse_str(char *input);
-int valid_input(char *str);
-int validate_stack(int *arr, int size);
-void ft_sort(int **arr, int size);
-void free_arr(int** arr);
-
-#endif
+	ptr = s;
+	i = 0;
+	while (i < n)
+	{
+		ptr[i] = c;
+		i++;
+	}
+	return (s);
+}
