@@ -6,7 +6,7 @@
 /*   By: rimagalh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:17:28 by rimagalh          #+#    #+#             */
-/*   Updated: 2025/01/22 15:39:07 by rimagalh         ###   ########.fr       */
+/*   Updated: 2025/01/22 16:16:47 by rimagalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int **parse_nums(char **input, int total)
 	int **arr;
 
 	i = 0;
-	arr = malloc(sizeof(int*) * 2);
+	arr = malloc(sizeof(int *) * 2);
 	arr[0] = malloc(sizeof(int) * (total - 1));
 	arr[1] = malloc(sizeof(int));
 	*arr[1] = total - 1;
