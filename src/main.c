@@ -6,7 +6,7 @@
 /*   By: rimagalh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:02:42 by rimagalh          #+#    #+#             */
-/*   Updated: 2025/01/22 15:39:14 by rimagalh         ###   ########.fr       */
+/*   Updated: 2025/01/25 16:12:33 by rimagalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int main(int argc, char **argv)
 			return (1);
 		}
 	}
+	ft_sort(arr[0], *arr[1]);
 
 	free_arr(arr);
 	return (0);
