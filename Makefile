@@ -6,7 +6,7 @@
 #    By: rimagalh <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/05 14:57:15 by rimagalh          #+#    #+#              #
-#    Updated: 2025/01/25 17:38:05 by rimagalh         ###   ########.fr        #
+#    Updated: 2025/01/27 14:40:01 by rimagalh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ NAME = push_swap
 SRC = src/main.c \
 	src/parse.c \
 	src/parse_utils.c \
-	src/sort.c
+	src/sort.c \
+	src/sort_utils.c
 
 OBJ = $(SRC:.c=.o)
 
