@@ -6,7 +6,7 @@
 /*   By: rimagalh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:02:42 by rimagalh          #+#    #+#             */
-/*   Updated: 2025/01/25 16:45:02 by rimagalh         ###   ########.fr       */
+/*   Updated: 2025/01/27 13:58:36 by rimagalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char **argv)
 	}
 	else
 	{
-		arr = parse_nums(argv, argc);
+		arr = parse_nums(argv, argc - 1);
 		if (arr == NULL)
 		{
 			ft_printf("Error\n");

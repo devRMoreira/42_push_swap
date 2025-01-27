@@ -6,7 +6,7 @@
 /*   By: rimagalh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:34:02 by rimagalh          #+#    #+#             */
-/*   Updated: 2025/01/22 16:16:08 by rimagalh         ###   ########.fr       */
+/*   Updated: 2025/01/27 14:17:09 by rimagalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int** parse_nums(char **input, int total);
 int** parse_str(char *input);
 int valid_input(char *str);
 int validate_stack(int *arr, int size);
-void ft_sort(int *stack_a, int size);
+void ft_sort(int *stack_a, int size_a);
 void free_arr(int** arr);
 
 #endif
