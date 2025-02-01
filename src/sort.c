@@ -6,200 +6,105 @@
 /*   By: rimagalh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 15:13:28 by rimagalh          #+#    #+#             */
-/*   Updated: 2025/01/29 18:48:52 by rimagalh         ###   ########.fr       */
+/*   Updated: 2025/02/01 19:22:10 by rimagalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "../includes/push_swap.h"
 
+void ft_get_pos(int **stack)
+{
+	int max;
+	int i;
+	int j;
+
+	i = 0;
+	while(i < *stack[1])
+	{
+		max = 2147483647;
+		j = 0;
+		while(j < *stack[1])
+		{
+			if(stack[0][j] < max && stack[2][j] == -1)
+				max = stack[0][j];
+			j++;
+		}
+		j = 0;
+		while(j < *stack[1])
+		{
+			if(stack[0][j] == max)
+				stack[2][j] = i;
+			j++;
+		}
+		i++;
+	}
+}
 
 static int check_sorted(int *arr, int size)
 {
     int i;
-	i = 0;
-    while (i < size - 1)
-    {
-        if (arr[i] > arr[i + 1])
-            return 0;
-        i++;
-    }
-    return 1;
-}
 
-int find_ind(int *arr, int num, int size)
-{
-	int i;
-
-	i = 0;
-	while(i <= size)
+	if(arr[0])
 	{
-		if(arr[i] == num)
-			return (i);
-		i++;
-	}
-
-	return (-1);
-}
-
-static void sort_copy(int *arr, int size)
-{
-	int i;
-	int temp;
-
-	i = 0;
-	while(i < size - 1)
-	{
-		if(arr[i] > arr[i + 1])
+		i = 0;
+		while (i < size - 1)
 		{
-			temp = arr[i];
-			arr[i] = arr[i + 1];
-			arr[i + 1] = temp;
-			i = 0;
-		}
-		else
+			if(arr[i] > arr[i + 1])
+				return (1);
 			i++;
+		}
 	}
+    return (0);
 }
 
-int *copy_stack(int *arr, int size)
-{
-	int *temp;
-	temp = ft_calloc(size, sizeof(int));
-	if(!temp)
-		return (NULL);
-	ft_memcpy(temp, arr, size * sizeof(int));
-
-	sort_copy(temp, size);
-	return(temp);
-}
-
-int *create_empty_stack(int size)
-{
-	int *new;
-
-	new = ft_calloc(size, sizeof(int));
-	if(!new)
-		return NULL;
-	return (new);
-}
-
-int find_max_bits(int num)
+void radix(int **stack_a, int **stack_b)
 {
 	int bits;
-
-	bits = 0;
-	while((num >> bits) != 0)
-		bits++;
-	return(bits);
-}
-
-void print_stack(int *stack, int size, char *name) {
-    printf("%s: ", name);
-    for (int i = 0; i < size; i++) {
-        printf("%d ", stack[i]);
-    }
-    printf("\n");
-}
-
-void radix(int *stack_a, int *size_a, int *stack_b, int *copy)
-{
-	int max_num;
-	int max_bits;
 	int i;
-	int j;
-	int num;
-	int size_b;
 
-	size_b = 0;
-	max_num = copy[*size_a - 1];
-	max_bits = find_max_bits(max_num);
-	i = 0;
-	while(i < max_bits)
+	bits = -1;
+	while (check_sorted(stack_a[2], *stack_a[1]) && ++bits < 32)
 	{
-		j = 0;
-		while(j < *size_a)
+		i = 0;
+		while(i < *stack_a[1])
 		{
-			num = find_ind(copy, stack_a[0], *size_a);
-			if(num == -1)
-			{
-				j++;
-				continue ;
-			}
-			if(((num >> i) & 1) == 1)
-				rotate(stack_a, *size_a, 97);
+			if((stack_a[2][0] >> bits) & 1)
+				rotate(stack_a, 'a');
 			else
-				push(stack_a, size_a, stack_b, &size_b, 98);
-			j++;
+				push(stack_a, stack_b, 'b');
+			i++;
 		}
-		while(size_b > 0)
-			push(stack_b, &size_b, stack_a, size_a, 97);
-		i++;
+		i = 0;
+		while(i < *stack_b[1])
+		{
+			push(stack_b, stack_a, 'a');
+			i++;
+		}
 	}
 }
 
-int ft_sort(int *stack_a, int size_a)
+int ft_sort(int **stack_a)
 {
-	int *copy;
-	int *stack_b;
-	copy = copy_stack(stack_a, size_a);
-	if(!copy)
-		return (0);
+	int **stack_b;
 
-	stack_b = create_empty_stack(size_a);
-	if(!stack_b)
-	{
-		free(copy);
-		return (0);
-	}
+	stack_b = malloc(sizeof(int *) * 3);
+	stack_b[0] = malloc(sizeof(int) * *stack_a[1]);
+	stack_b[1] = malloc(sizeof(int));
+	stack_b[2] = malloc(sizeof(int) * *stack_a[1]);
 
-	if(!check_sorted(stack_a, size_a))
-		radix(stack_a, &size_a, stack_b, copy);
+	if (!stack_b || !stack_b[0] || !stack_b[1] || !stack_b[2])
+		return(free_stack(stack_b), 0);
+	*stack_b[1] = 0;
 
-    free(stack_b);
-    free(copy);
+
+	ft_get_pos(stack_a);
+	print_array(stack_a[0], *stack_a[1]);
+	print_array(stack_a[2], *stack_a[1]);
+	radix(stack_a, stack_b);
+	print_array(stack_a[0], *stack_a[1]);
+	print_array(stack_a[2], *stack_a[1]);
+
+    free_stack(stack_b);
 	return (1);
 }
-
-
-// ! old might be useful
-// static int check_sorted(int *arr, int size)
-// {
-//     int i;
-
-// 	i = 0;
-//     while (i < size - 1)
-//     {
-//         if (arr[i] > arr[i + 1])
-//             return 0;
-//         i++;
-//     }
-//     return 1;
-// }
-
-// static void sort_three(int *arr)
-// {
-// 	int first;
-// 	int second;
-// 	int third;
-
-// 	first = arr[0];
-// 	second = arr[1];
-// 	third = arr[2];
-// 	if(first > second && second < third && first < third)
-// 		swap(arr, 97);
-// 	else if (first > second && first > third)
-// 	{
-// 		swap(arr, 97);
-// 		reverse_rotate(arr, 3, 97);
-// 	}
-// 	else if (first > second && second < third)
-// 		rotate(arr, 3, 97);
-// 	else if (first < second && second > third && first < third)
-// 	{
-// 		swap(arr, 97);
-// 		rotate(arr, 3, 97);
-// 	}
-// 	else if (first < second && second > third)
-// 		reverse_rotate(arr, 3, 97);
-// }

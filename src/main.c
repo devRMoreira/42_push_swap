@@ -6,7 +6,7 @@
 /*   By: rimagalh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:02:42 by rimagalh          #+#    #+#             */
-/*   Updated: 2025/01/29 17:35:54 by rimagalh         ###   ########.fr       */
+/*   Updated: 2025/02/01 16:23:20 by rimagalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,13 @@ int	main(int argc, char **argv)
 		}
 	}
 	if(*arr[1] > 1)
-		res = ft_sort(arr[0], *arr[1]);
+		res = ft_sort(arr);
 	if(!res)
 		ft_printf("Error\n");
-	print_array(arr[0], *arr[1]);
-	free_arr(arr);
+	// ft_printf("0\n");
+	// print_array(arr[0], *arr[1]);
+	// ft_printf("2\n");
+	// print_array(arr[2], *arr[1]);
+	free_stack(arr);
 	return (0);
 }

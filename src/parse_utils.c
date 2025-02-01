@@ -6,7 +6,7 @@
 /*   By: rimagalh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:31:03 by rimagalh          #+#    #+#             */
-/*   Updated: 2025/01/25 16:51:24 by rimagalh         ###   ########.fr       */
+/*   Updated: 2025/02/01 16:23:03 by rimagalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int	valid_input(char *str)
 	return (0);
 }
 
-void	free_arr(int **arr)
+void	free_stack(int **arr)
 {
 	if (arr)
 	{
@@ -93,6 +93,8 @@ void	free_arr(int **arr)
 			free(arr[0]);
 		if (arr[1])
 			free(arr[1]);
+		if (arr[2])
+			free(arr[2]);
 		free(arr);
 	}
 }
