@@ -6,7 +6,7 @@
 /*   By: rimagalh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 15:13:28 by rimagalh          #+#    #+#             */
-/*   Updated: 2025/02/01 20:15:39 by rimagalh         ###   ########.fr       */
+/*   Updated: 2025/02/01 20:24:48 by rimagalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,11 +73,9 @@ void radix(int **stack_a, int **stack_b)
 			i++;
 		}
 		i = 0;
-		while(i < *stack_b[1])
-		{
+		while(*stack_b[1])
 			push(stack_b, stack_a, 'a');
-			i++;
-		}
+
 		// ft_printf("After bit %d:\n", bits);
         // ft_printf("Stack A: ");
         // print_array(stack_a[0], *stack_a[1]);
