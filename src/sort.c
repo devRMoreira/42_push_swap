@@ -6,7 +6,7 @@
 /*   By: rimagalh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 15:13:28 by rimagalh          #+#    #+#             */
-/*   Updated: 2025/02/01 19:22:10 by rimagalh         ###   ########.fr       */
+/*   Updated: 2025/02/01 20:15:39 by rimagalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,25 @@
 
 void ft_get_pos(int **stack)
 {
-	int max;
+	int min;
 	int i;
 	int j;
 
 	i = 0;
 	while(i < *stack[1])
 	{
-		max = 2147483647;
+		min = 2147483647;
 		j = 0;
 		while(j < *stack[1])
 		{
-			if(stack[0][j] < max && stack[2][j] == -1)
-				max = stack[0][j];
+			if(stack[0][j] < min && stack[2][j] == -1)
+				min = stack[0][j];
 			j++;
 		}
 		j = 0;
 		while(j < *stack[1])
 		{
-			if(stack[0][j] == max)
+			if(stack[0][j] == min)
 				stack[2][j] = i;
 			j++;
 		}
@@ -45,15 +45,12 @@ static int check_sorted(int *arr, int size)
 {
     int i;
 
-	if(arr[0])
+	i = 0;
+	while (i < size - 1)
 	{
-		i = 0;
-		while (i < size - 1)
-		{
-			if(arr[i] > arr[i + 1])
-				return (1);
-			i++;
-		}
+		if(arr[i] > arr[i + 1])
+			return (1);
+		i++;
 	}
     return (0);
 }
@@ -69,7 +66,7 @@ void radix(int **stack_a, int **stack_b)
 		i = 0;
 		while(i < *stack_a[1])
 		{
-			if((stack_a[2][0] >> bits) & 1)
+			if((stack_a[2][i] >> bits) & 1)
 				rotate(stack_a, 'a');
 			else
 				push(stack_a, stack_b, 'b');
@@ -81,6 +78,11 @@ void radix(int **stack_a, int **stack_b)
 			push(stack_b, stack_a, 'a');
 			i++;
 		}
+		// ft_printf("After bit %d:\n", bits);
+        // ft_printf("Stack A: ");
+        // print_array(stack_a[0], *stack_a[1]);
+        // ft_printf("Stack B: ");
+        // print_array(stack_b[0], *stack_b[1]);
 	}
 }
 
