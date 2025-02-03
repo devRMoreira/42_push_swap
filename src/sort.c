@@ -6,7 +6,7 @@
 /*   By: rimagalh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 15:13:28 by rimagalh          #+#    #+#             */
-/*   Updated: 2025/02/01 20:24:48 by rimagalh         ###   ########.fr       */
+/*   Updated: 2025/02/03 16:36:49 by rimagalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void ft_get_pos(int **stack)
 	}
 }
 
+
 static int check_sorted(int *arr, int size)
 {
     int i;
@@ -57,30 +58,26 @@ static int check_sorted(int *arr, int size)
 
 void radix(int **stack_a, int **stack_b)
 {
-	int bits;
+	int bit;
 	int i;
+	int	size;
 
-	bits = -1;
-	while (check_sorted(stack_a[2], *stack_a[1]) && ++bits < 32)
+	bit = 0;
+	while (check_sorted(stack_a[2], *stack_a[1]) && bit < 32)
 	{
 		i = 0;
-		while(i < *stack_a[1])
+		size = *stack_a[1];
+		while(size)
 		{
-			if((stack_a[2][i] >> bits) & 1)
+			if(*stack_a[2] >> bit & 1 )
 				rotate(stack_a, 'a');
 			else
 				push(stack_a, stack_b, 'b');
-			i++;
+			size--;
 		}
-		i = 0;
-		while(*stack_b[1])
+		while(*stack_b[1] > 0)
 			push(stack_b, stack_a, 'a');
-
-		// ft_printf("After bit %d:\n", bits);
-        // ft_printf("Stack A: ");
-        // print_array(stack_a[0], *stack_a[1]);
-        // ft_printf("Stack B: ");
-        // print_array(stack_b[0], *stack_b[1]);
+		bit++;
 	}
 }
 
@@ -97,14 +94,8 @@ int ft_sort(int **stack_a)
 		return(free_stack(stack_b), 0);
 	*stack_b[1] = 0;
 
-
 	ft_get_pos(stack_a);
-	print_array(stack_a[0], *stack_a[1]);
-	print_array(stack_a[2], *stack_a[1]);
 	radix(stack_a, stack_b);
-	print_array(stack_a[0], *stack_a[1]);
-	print_array(stack_a[2], *stack_a[1]);
-
     free_stack(stack_b);
 	return (1);
 }

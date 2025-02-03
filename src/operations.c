@@ -6,7 +6,7 @@
 /*   By: rimagalh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 13:25:05 by rimagalh          #+#    #+#             */
-/*   Updated: 2025/02/01 20:14:30 by rimagalh         ###   ########.fr       */
+/*   Updated: 2025/02/03 17:20:58 by rimagalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,6 @@ void rotate(int **arr, char c)
 	}
 	arr[0][size - 1] = temp;
 	arr[2][size - 1] = temp_id;
-	ft_printf("r%c\n", c);
-	    // ft_printf("After rotate %c:\n", c);
-    print_array(arr[0], size);
 }
 
 void push(int **src, int **dest, char c)
@@ -53,6 +50,7 @@ void push(int **src, int **dest, char c)
 	if(*src[1] <= 0)
 		return ;
 	int i = *dest[1];
+
 
 	while(i > 0)
 	{
@@ -73,9 +71,4 @@ void push(int **src, int **dest, char c)
 	(*src[1])--;
 	(*dest[1])++;
 	ft_printf("p%c\n", c);
-	//     ft_printf("After push %c:\n", c);
-    // ft_printf("Source stack: ");
-    // print_array(src[0], *src[1]);
-    // ft_printf("Destination stack: ");
-    // print_array(dest[0], *dest[1]);
 }

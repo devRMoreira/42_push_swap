@@ -6,12 +6,12 @@
 #    By: rimagalh <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/05 14:57:15 by rimagalh          #+#    #+#              #
-#    Updated: 2025/01/29 16:43:56 by rimagalh         ###   ########.fr        #
+#    Updated: 2025/02/03 17:57:43 by rimagalh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-# CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 NAME = push_swap
 
