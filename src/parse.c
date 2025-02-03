@@ -6,7 +6,7 @@
 /*   By: rimagalh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:17:28 by rimagalh          #+#    #+#             */
-/*   Updated: 2025/02/03 14:58:06 by rimagalh         ###   ########.fr       */
+/*   Updated: 2025/02/03 18:05:04 by rimagalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ int	**parse_str(char *input)
 	arr[1] = malloc(sizeof(int));
 	*arr[1] = i;
 	arr[2] = malloc(sizeof(int) * i);
-
 	if (!arr || !arr[0] || !arr[1] || !arr[2])
 		return (free_split(split_input), free_stack(arr), NULL);
 	i--;
