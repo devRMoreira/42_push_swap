@@ -6,7 +6,7 @@
 /*   By: rimagalh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:34:02 by rimagalh          #+#    #+#             */
-/*   Updated: 2025/02/03 18:03:54 by rimagalh         ###   ########.fr       */
+/*   Updated: 2025/02/06 14:08:43 by rimagalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,7 @@ int		ft_sort(int **stack_a);
 void	free_stack(int **arr);
 void	rotate(int **arr, char c);
 void	push(int **src, int **dest, char c);
+void	swap(int **arr, char c);
+void	reverse_rotate(int **arr, char c);
 
 #endif

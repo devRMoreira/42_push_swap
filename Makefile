@@ -6,7 +6,7 @@
 #    By: rimagalh <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/05 14:57:15 by rimagalh          #+#    #+#              #
-#    Updated: 2025/02/03 17:57:43 by rimagalh         ###   ########.fr        #
+#    Updated: 2025/02/06 14:07:34 by rimagalh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,6 @@ SRC = src/main.c \
 	src/parse.c \
 	src/parse_utils.c \
 	src/sort.c \
-	src/sort_utils.c \
 	src/operations.c
 
 OBJ = $(SRC:.c=.o)

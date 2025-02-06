@@ -6,21 +6,11 @@
 /*   By: rimagalh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 13:25:05 by rimagalh          #+#    #+#             */
-/*   Updated: 2025/02/03 18:05:14 by rimagalh         ###   ########.fr       */
+/*   Updated: 2025/02/06 14:10:04 by rimagalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-void	swap(int *arr, char c)
-{
-	int	temp;
-
-	temp = arr[0];
-	arr[0] = arr[1];
-	arr[1] = temp;
-	ft_printf("s%c\n", c);
-}
 
 void	rotate(int **arr, char c)
 {
@@ -43,6 +33,7 @@ void	rotate(int **arr, char c)
 	}
 	arr[0][size - 1] = temp;
 	arr[2][size - 1] = temp_id;
+	ft_printf("r%c\n", c);
 }
 
 void	push(int **src, int **dest, char c)
@@ -70,4 +61,42 @@ void	push(int **src, int **dest, char c)
 	(*src[1])--;
 	(*dest[1])++;
 	ft_printf("p%c\n", c);
+}
+
+void	swap(int **arr, char c)
+{
+	int	temp;
+	int	temp_id;
+
+	temp = arr[0][0];
+	temp_id = arr[2][0];
+	arr[0][0] = arr[0][1];
+	arr[0][1] = temp;
+	arr[2][0] = arr[2][1];
+	arr[2][1] = temp;
+	ft_printf("s%c", c);
+}
+
+void	reverse_rotate(int **arr, char c)
+{
+	int	temp;
+	int	temp_id;
+	int	i;
+	int	size;
+
+	size = *arr[1];
+	if (size < 2)
+		return ;
+	temp = arr[0][size - 1];
+	temp_id = arr[2][size - 1];
+	i = size - 1;
+	while (i > 0)
+	{
+		arr[0][i] = arr[0][i - 1];
+		arr[2][i] = arr[2][i - 1];
+		i--;
+	}
+	arr[0][0] = temp;
+	arr[2][0] = temp;
+	ft_printf("rr%c", c);
 }

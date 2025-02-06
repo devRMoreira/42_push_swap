@@ -6,11 +6,20 @@
 /*   By: rimagalh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:17:28 by rimagalh          #+#    #+#             */
-/*   Updated: 2025/02/03 18:05:04 by rimagalh         ###   ########.fr       */
+/*   Updated: 2025/02/06 14:10:38 by rimagalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+static void	alloc_arr(int ***arr, int i)
+{
+	*arr = malloc(sizeof(int *) * 3);
+	(*arr[0]) = malloc(sizeof(int) * i);
+	(*arr[1]) = malloc(sizeof(int));
+	*(*arr[1]) = i;
+	(*arr[2]) = malloc(sizeof(int) * i);
+}
 
 static void	free_split(char **split)
 {
@@ -37,21 +46,16 @@ int	**parse_str(char *input)
 		return (NULL);
 	while (split_input[i])
 		i++;
-	arr = malloc(sizeof(int *) * 3);
-	arr[0] = malloc(sizeof(int) * i);
-	arr[1] = malloc(sizeof(int));
-	*arr[1] = i;
-	arr[2] = malloc(sizeof(int) * i);
+	arr = NULL;
+	alloc_arr(&arr, i);
 	if (!arr || !arr[0] || !arr[1] || !arr[2])
 		return (free_split(split_input), free_stack(arr), NULL);
-	i--;
-	while (i >= 0)
+	while (--i >= 0)
 	{
 		if (valid_input(split_input[i]))
 			return (free_split(split_input), free_stack(arr), NULL);
 		arr[0][i] = ft_atoi(split_input[i]);
 		arr[2][i] = -1;
-		i--;
 	}
 	free_split(split_input);
 	if (validate_stack(arr[0], *arr[1]))
