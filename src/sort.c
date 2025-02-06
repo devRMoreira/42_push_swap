@@ -6,7 +6,7 @@
 /*   By: rimagalh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 15:13:28 by rimagalh          #+#    #+#             */
-/*   Updated: 2025/02/06 14:08:06 by rimagalh         ###   ########.fr       */
+/*   Updated: 2025/02/06 14:13:16 by rimagalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	sort_three(int **arr)
 	else if (first > second && second > third)
 	{
 		swap(arr, 'a');
-		reverse_rotate(arr, 3, 'a');
+		reverse_rotate(arr, 'a');
 	}
 	else if (first > second && second < third)
 		rotate(arr, 'a');
@@ -36,7 +36,7 @@ static void	sort_three(int **arr)
 		rotate(arr, 'a');
 	}
 	else if (first < second && second > third)
-		reverse_rotate(arr, 3, 'a');
+		reverse_rotate(arr,'a');
 }
 
 void	ft_get_pos(int **stack)
