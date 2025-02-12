@@ -6,22 +6,22 @@
 /*   By: rimagalh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:17:28 by rimagalh          #+#    #+#             */
-/*   Updated: 2025/02/06 14:25:36 by rimagalh         ###   ########.fr       */
+/*   Updated: 2025/02/12 20:08:36 by rimagalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static int	**new_arr(int size)
+int	**new_stack(int size)
 {
-	int	**arr;
+	int	**stack;
 
-	arr = malloc(sizeof(int *) * 3);
-	arr[0] = malloc(sizeof(int) * size);
-	arr[2] = malloc(sizeof(int) * size);
-	arr[1] = malloc(sizeof(int));
-	*arr[1] = size;
-	return (arr);
+	stack = malloc(sizeof(int *) * 3);
+	stack[0] = malloc(sizeof(int) * size);
+	stack[2] = malloc(sizeof(int) * size);
+	stack[1] = malloc(sizeof(int));
+	*stack[1] = size;
+	return (stack);
 }
 
 static void	free_split(char **split)
@@ -47,9 +47,15 @@ int	**parse_str(char *input)
 	split_input = ft_split(input, ' ');
 	if (!split_input)
 		return (NULL);
+	printf("split_input:\n");
+	while (split_input[i])
+	{
+		printf("%s\n", split_input[i]);
+		i++;
+	}
 	while (split_input[i])
 		i++;
-	arr = new_arr(i);
+	arr = new_stack(i);
 	if (!arr || !arr[0] || !arr[1] || !arr[2])
 		return (free_split(split_input), free_stack(arr), NULL);
 	while (--i >= 0)
@@ -71,7 +77,7 @@ int	**parse_nums(char **input, int total)
 	int	**arr;
 
 	i = 0;
-	arr = new_arr(total);
+	arr = new_stack(total);
 	if (!arr || !arr[0] || !arr[1] || !arr [2])
 		return (free_stack(arr), NULL);
 	while (i < *arr[1])

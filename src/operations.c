@@ -6,7 +6,7 @@
 /*   By: rimagalh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 13:25:05 by rimagalh          #+#    #+#             */
-/*   Updated: 2025/02/06 14:10:04 by rimagalh         ###   ########.fr       */
+/*   Updated: 2025/02/12 20:08:34 by rimagalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,8 @@ void	swap(int **arr, char c)
 	arr[0][0] = arr[0][1];
 	arr[0][1] = temp;
 	arr[2][0] = arr[2][1];
-	arr[2][1] = temp;
-	ft_printf("s%c", c);
+	arr[2][1] = temp_id;
+	ft_printf("s%c\n", c);
 }
 
 void	reverse_rotate(int **arr, char c)
@@ -97,6 +97,6 @@ void	reverse_rotate(int **arr, char c)
 		i--;
 	}
 	arr[0][0] = temp;
-	arr[2][0] = temp;
-	ft_printf("rr%c", c);
+	arr[2][0] = temp_id;
+	ft_printf("rr%c\n", c);
 }
