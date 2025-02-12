@@ -6,7 +6,7 @@
 /*   By: rimagalh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 19:32:23 by rimagalh          #+#    #+#             */
-/*   Updated: 2025/02/12 20:08:38 by rimagalh         ###   ########.fr       */
+/*   Updated: 2025/02/12 20:12:50 by rimagalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,41 +26,38 @@ int	check_sorted(int *arr, int size)
 	return (1);
 }
 
-int		get_min(int **stack)
+int	get_min(int **stack)
 {
-	int min;
-	int i;
+	int	min;
+	int	i;
 
 	min = stack[0][0];
 	i = 0;
-	while(i < *stack[1])
+	while (i < *stack[1])
 	{
-		if(stack[0][i] < min)
+		if (stack[0][i] < min)
 			min = stack[0][i];
 		i++;
 	}
-
 	return (min);
 }
 
 void	rotate_min_top(int **stack, int min, char c)
 {
-    int	i;
-    int	size;
+	int	i;
+	int	size;
 
-    size = *stack[1];
+	size = *stack[1];
 	i = -1;
-	while(++i < size)
-		if(stack[0][i] == min)
-			break;
-
-	if(i < size / 2)
-		while(stack[0][0] != min)
+	while (++i < size)
+		if (stack[0][i] == min)
+			break ;
+	if (i < size / 2)
+		while (stack[0][0] != min)
 			rotate(stack, c);
 	else
-		while(stack[0][0] != min)
+		while (stack[0][0] != min)
 			reverse_rotate(stack, c);
-
 }
 
 void	get_pos(int **stack)

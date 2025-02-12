@@ -6,7 +6,7 @@
 /*   By: rimagalh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:17:28 by rimagalh          #+#    #+#             */
-/*   Updated: 2025/02/12 20:08:36 by rimagalh         ###   ########.fr       */
+/*   Updated: 2025/02/12 20:13:11 by rimagalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,6 @@ int	**parse_str(char *input)
 	split_input = ft_split(input, ' ');
 	if (!split_input)
 		return (NULL);
-	printf("split_input:\n");
-	while (split_input[i])
-	{
-		printf("%s\n", split_input[i]);
-		i++;
-	}
 	while (split_input[i])
 		i++;
 	arr = new_stack(i);

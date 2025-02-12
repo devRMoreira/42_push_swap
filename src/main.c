@@ -6,27 +6,16 @@
 /*   By: rimagalh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:02:42 by rimagalh          #+#    #+#             */
-/*   Updated: 2025/02/12 20:08:32 by rimagalh         ###   ########.fr       */
+/*   Updated: 2025/02/12 20:14:03 by rimagalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	print_stack(int **stack, char *name)
-{
-    int i;
-    printf("%s: ", name);
-    for (i = 0; i < *stack[1]; i++)
-    {
-        printf("%d ", stack[0][i]);
-    }
-    printf("\n");
-}
-
 int	main(int argc, char **argv)
 {
 	int	**stack;
-	int res;
+	int	res;
 
 	if (argc == 2)
 	{
@@ -41,8 +30,8 @@ int	main(int argc, char **argv)
 			return (ft_printf("Error \n"), 1);
 	}
 	res = ft_sort(stack);
-	if(!res)
-		return(ft_printf("Error \n"), free_stack(stack), 1);
+	if (!res)
+		return (ft_printf("Error \n"), free_stack(stack), 1);
 	free_stack(stack);
 	return (0);
 }

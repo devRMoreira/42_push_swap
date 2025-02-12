@@ -6,7 +6,7 @@
 /*   By: rimagalh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:34:02 by rimagalh          #+#    #+#             */
-/*   Updated: 2025/02/12 20:08:30 by rimagalh         ###   ########.fr       */
+/*   Updated: 2025/02/12 20:14:06 by rimagalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ void	rotate(int **arr, char c);
 void	push(int **src, int **dest, char c);
 void	swap(int **arr, char c);
 void	reverse_rotate(int **arr, char c);
-void	print_stack(int **stack, char *name);
 void	rotate_min_top(int **stack, int min, char c);
-
 
 #endif
