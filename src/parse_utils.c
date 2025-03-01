@@ -6,7 +6,7 @@
 /*   By: rimagalh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:31:03 by rimagalh          #+#    #+#             */
-/*   Updated: 2025/02/13 11:10:51 by rimagalh         ###   ########.fr       */
+/*   Updated: 2025/03/01 15:39:43 by rimagalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ static int	check_size(char *str)
 		if (str[0] == '+')
 			str++;
 		len = ft_strlen(str);
+		if(len > 10)
+			return(1);
 		if (len == 10 && ft_strncmp(str, max, 10) > 0)
 			return (1);
 	}
