@@ -6,7 +6,7 @@
 /*   By: rimagalh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:31:03 by rimagalh          #+#    #+#             */
-/*   Updated: 2025/03/01 15:39:43 by rimagalh         ###   ########.fr       */
+/*   Updated: 2025/03/03 19:51:01 by rimagalh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,30 +28,13 @@ static int	check_dupe(int *arr, int size, int i)
 
 static int	check_size(char *str)
 {
-	char	*max;
-	char	*min;
-	size_t	len;
+	long	max;
+	long	min;
 
-	max = "2147483647";
-	min = "-2147483648";
-	len = ft_strlen(str);
-	if (len > 11)
+	max = 2147483647;
+	min = -2147483648;
+	if (atol(str) > max || atol(str) < min)
 		return (1);
-	if (str[0] == '-')
-	{
-		if (len == 11 && ft_strncmp(str, min, 11) > 0)
-			return (1);
-	}
-	else
-	{
-		if (str[0] == '+')
-			str++;
-		len = ft_strlen(str);
-		if(len > 10)
-			return(1);
-		if (len == 10 && ft_strncmp(str, max, 10) > 0)
-			return (1);
-	}
 	return (0);
 }
 
